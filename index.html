@@ -1335,8 +1335,9 @@
       /* UNIVERSITY GRID */
       .placements-label { font-size: 0.9rem; margin-bottom: 1.75rem; line-height: 1.5; }
       .placements-label br { display: none; }
-      .university-grid { gap: 1.25rem 0.75rem; }
-      .university-item { width: 95px; }
+      .university-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 1rem; max-width: 100%; }
+      .university-item { width: auto; }
+      .university-item:last-child { grid-column: 2; }
       .uni-name-main { font-size: 0.9rem; }
       .uni-name-sub { font-size: 0.5rem; letter-spacing: 0.08em; }
       .uni-divider { width: 24px; }
@@ -1433,8 +1434,8 @@
       .proof-bar-inner { flex-direction: column; gap: 0.35rem; }
       .team-circles { gap: 1rem; }
       .team-circle { width: 90px; height: 90px; }
-      .university-grid { gap: 1rem 0.5rem; }
-      .university-item { width: 85px; }
+      .university-grid { gap: 1.25rem 0.75rem; }
+      .university-item { width: auto; }
       .strategy-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .also-enrolled-schools { font-size: 0.78rem; }
       .section-cta { padding: 0.7rem 1.25rem; }
@@ -1479,7 +1480,7 @@
 
       .photo-strip { height: 160px; }
 
-      .university-item { width: 75px; }
+      .university-item { width: auto; }
       .uni-name-main { font-size: 0.8rem; }
       .uni-name-sub { font-size: 0.45rem; }
       .university-count { font-size: 0.6rem; }
@@ -1840,7 +1841,7 @@
 
       <div class="also-enrolled fade-up">
         <div class="also-enrolled-label">We have also successfully enrolled students in:</div>
-        <div class="also-enrolled-schools">UNC &nbsp;&middot;&nbsp; Michigan &nbsp;&middot;&nbsp; UVA &nbsp;&middot;&nbsp; Notre Dame &nbsp;&middot;&nbsp; Georgia Tech &nbsp;&middot;&nbsp; U Florida &nbsp;&middot;&nbsp; UT Austin</div>
+        <div class="also-enrolled-schools">UNC &nbsp;&middot;&nbsp; Michigan &nbsp;&middot;&nbsp; UVA &nbsp;&middot;&nbsp; Notre&nbsp;Dame &nbsp;&middot;&nbsp; Georgia&nbsp;Tech &nbsp;&middot;&nbsp; U&nbsp;Florida &nbsp;&middot;&nbsp; UT&nbsp;Austin</div>
       </div>
 
       <div class="section-cta-wrap fade-up">
