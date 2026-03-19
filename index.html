@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Pacifica Fellowship</title>
+  <meta property="og:title" content="The Pacifica Fellowship" />
+  <meta property="og:description" content="An immersive, 2+2 student improvement program that graduates high-potential students from a Top 35 university in the US, guaranteed." />
+  <meta property="og:image" content="https://pacificafellowship.com/hero-bg.jpg" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Pacifica Fellowship" />
+  <meta name="twitter:description" content="An immersive, 2+2 student improvement program that graduates high-potential students from a Top 35 university in the US, guaranteed." />
+  <meta name="twitter:image" content="https://pacificafellowship.com/hero-bg.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f3f0eb;
+      --bg-warm-dark: #1a1410;
+      --surface: #e8e4dd;
+      --text: #1a1714;
+      --muted: #847b72;
+      --white: #faf8f5;
+      --accent: #1a4d3e;
+      --border: #d4cfc7;
+      --max-w: 920px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 9999;
+      background: transparent;
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.5s ease, backdrop-filter 0.5s ease, border-color 0.5s ease;
+    }
+
+    nav.nav-scrolled {
+      background: rgba(243, 240, 235, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 59px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @keyframes logo-appear {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      line-height: 1;
+      animation: logo-appear 3s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-iteration-count: 1;
+      transition: color 0.5s ease;
+    }
+
+    nav.nav-scrolled .nav-logo { color: var(--text); }
+
+    .logo-the {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.56rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+    }
+
+    .logo-pacifica {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+
+    .logo-fellowship {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.53rem;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.5s ease;
+      position: relative;
+    }
+
+    nav.nav-scrolled .nav-links a { color: var(--muted); }
+    nav.nav-scrolled .nav-links a:hover { color: var(--text); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover { color: #fff; }
+    nav.nav-scrolled .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background-color: var(--bg-warm-dark);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+      background: var(--bg-warm-dark);
+    }
+
+    /* ── SECTION CTA ── */
+    .section-cta-wrap {
+      margin-top: 3rem;
+    }
+
+    .section-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--text);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.4s ease, transform 0.4s ease;
+    }
+
+    .section-cta:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .section-cta-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--text);
+    }
+
+    .section-cta-outline:hover { background: var(--text); color: var(--white); transform: translateY(-2px); }
+
+    .section-cta-wrap { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    .section-cta-light {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+    }
+
+    .section-cta-light:hover { background: rgba(255,255,255,0.2); }
+
+    .section-cta-outline-light {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+
+    .section-cta-outline-light:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+    /* ── ADDITIONAL SCHOOLS ── */
+    .also-enrolled {
+      text-align: center;
+      margin-top: 3.5rem;
+    }
+
+    .also-enrolled-label {
+      font-size: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .also-enrolled-schools {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.01em;
+      line-height: 1.8;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(10, 6, 4, 0.68) 0%,
+        rgba(20, 13, 9, 0.38) 40%,
+        rgba(15, 10, 7, 0.75) 100%
+      );
+    }
+
+    .hero-body {
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 140px 2rem 2rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      max-width: 720px;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+
+    /* ── SCARCITY PILL ── */
+    .scarcity-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 0.4rem 1.25rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-scarcity {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .apply-scarcity {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .apply-scarcity strong {
+      color: var(--text);
+    }
+
+    /* ── HERO CLIP REVEAL ── */
+    @keyframes clip-reveal {
+      from { clip-path: inset(0 0 100% 0); opacity: 0; }
+      to   { clip-path: inset(0 0 0% 0); opacity: 1; }
+    }
+
+    .hero-tagline {
+      animation: clip-reveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+    }
+
+    /* ── SCROLL FADE-IN ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered children — add .stagger-children to parent */
+    .stagger-children .fade-up:nth-child(1) { transition-delay: 0s; }
+    .stagger-children .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .stagger-children .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .stagger-children .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .stagger-children .fade-up:nth-child(5) { transition-delay: 0.4s; }
+    .stagger-children .fade-up:nth-child(6) { transition-delay: 0.5s; }
+    .stagger-children .fade-up:nth-child(7) { transition-delay: 0.6s; }
+
+    /* ── SOCIAL PROOF BAR ── */
+    .proof-bar {
+      position: relative;
+      z-index: 2;
+      background: rgba(248, 245, 241, 0.97);
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .proof-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .proof-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .proof-sep {
+      width: 1px;
+      height: 42px;
+      background: var(--border);
+      flex-shrink: 0;
+    }
+
+    .logo-google {
+      font-family: 'Inter', sans-serif;
+      font-size: 2rem;
+      font-weight: 500;
+      background: linear-gradient(90deg, #4285f4 0 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      cursor: default;
+    }
+
+    .logo-google:hover { transform: scale(1.03); opacity: 0.85; }
+
+    .logo-usc-proof {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #990000;
+      border: 2px solid #990000;
+      padding: 0.2rem 0.75rem;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+      transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+      cursor: default;
+    }
+
+    .logo-usc-proof:hover { transform: scale(1.03); opacity: 0.85; }
+
+    .logo-netflix {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #e50914;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      cursor: default;
+    }
+
+    .logo-netflix:hover { transform: scale(1.03); opacity: 0.8; }
+
+    /* ── TEAM SECTION ── */
+    #team {
+      background: var(--bg);
+      padding: 8rem 2rem 5rem;
+    }
+
+    .team-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .team-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto 4rem;
+    }
+
+    .team-circles {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .team-circle-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      transition: transform 0.35s ease;
+    }
+
+    .team-circle-wrap:hover { transform: translateY(-4px); }
+
+    .team-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      overflow: hidden;
+      background: var(--surface);
+      flex-shrink: 0;
+      transition: transform 0.4s ease, border-color 0.4s ease;
+    }
+
+    .team-circle:hover {
+      transform: scale(1.04);
+      border-color: var(--accent);
+    }
+
+    .team-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-circle-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .team-caption {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 580px;
+      margin: 0 auto 4rem;
+    }
+
+    /* ── LOGOS BAR ── */
+    .logos-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── PHOTO STRIP ── */
+    .photo-strip {
+      height: 520px;
+      margin: 0 -2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.12);
+      transition: transform 8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .photo-strip.visible img {
+      transform: scale(1);
+    }
+
+    /* ── UNIVERSITY PLACEMENTS ── */
+    .placements-label {
+      text-align: center;
+      font-size: 1.4rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 3rem;
+    }
+
+    .university-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem 2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .university-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .uni-logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.1rem;
+    }
+
+    .uni-name-main {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      cursor: default;
+    }
+
+    .uni-logo-block:hover .uni-name-main {
+      transform: scale(1.08);
+      opacity: 0.8;
+    }
+
+    .uni-name-sub {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .uni-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .university-count {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* University brand colors */
+    .uni-berkeley { color: #003262; }
+    .uni-ucla     { color: #2774AE; }
+    .uni-ucdavis  { color: #002855; }
+    .uni-ucsd     { color: #182B49; }
+    .uni-usc      { color: #990000; }
+    .uni-uci      { color: #003366; }
+    .uni-ucsb     { color: #003660; }
+
+    /* ── STRATEGY / WHITE GLOVE ── */
+    #strategy {
+      background-color: var(--bg-warm-dark);
+      position: relative;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .strategy-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    #strategy::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: rgba(20, 13, 9, 0.85);
+    }
+
+    .strategy-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 8rem 2rem;
+      text-align: center;
+    }
+
+    .strategy-banner {
+      margin-bottom: 4rem;
+    }
+
+    .strategy-banner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    .strategy-banner h2 strong { font-weight: 700; }
+
+    .strategy-body {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .strategy-body p {
+      font-size: 1.2rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 1.75rem;
+    }
+
+    .strategy-body p:last-child { margin-bottom: 0; }
+
+    .accent-link { color: #ff6b6b; font-style: italic; }
+
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .strategy-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+    }
+
+    .strategy-card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .strategy-card-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: rgba(255,255,255,0.7);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .strategy-card-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .strategy-card-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    /* ── PROGRAM YEARS ── */
+    #program {
+      background: var(--bg);
+      padding: 8rem 2rem 0;
+    }
+
+    .program-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-bottom: 5rem;
+    }
+
+    .program-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 3.5rem;
+      text-align: center;
+    }
+
+    .program-headline strong { font-weight: 700; }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+      padding-left: 48px;
+    }
+
+    /* Vertical connecting line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 8px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-phase {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-phase:last-child { margin-bottom: 0; }
+
+    /* Dot on the line */
+    .timeline-dot {
+      position: absolute;
+      left: -48px;
+      top: 4px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+
+    .timeline-dot-number {
+      font-size: 0.7rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .timeline-year-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-location {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .timeline-items {
+      list-style: none;
+    }
+
+    .timeline-items li {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.55;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .timeline-items li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 4px;
+      background: var(--muted);
+      border-radius: 50%;
+    }
+
+    .timeline-items li:last-child { border-bottom: none; }
+
+    /* Graduation milestone */
+    .timeline-milestone {
+      position: relative;
+      margin-top: 3rem;
+      padding: 1.5rem 0 0;
+    }
+
+    .timeline-milestone .timeline-dot {
+      background: var(--text);
+      width: 36px;
+      height: 36px;
+      left: -50px;
+      top: 1.5rem;
+    }
+
+    .timeline-milestone-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .timeline-milestone-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    /* ── PULLQUOTE BAND ── */
+    .program-pullquote {
+      background-color: var(--bg-warm-dark);
+      position: relative;
+      margin: 0 -2rem;
+      overflow: hidden;
+    }
+
+    .program-pullquote::before {
+      content: '';
+      position: absolute;
+      inset: -20%;
+      background-image: url('caps-throwing.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .program-pullquote::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 20, 14, 0.65);
+      z-index: 0;
+    }
+
+    .program-pullquote-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .program-pullquote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── APPLY ── */
+    #apply {
+      min-height: 60vh;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .apply-content {
+      z-index: 1;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      padding: 6rem 2rem 7rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .apply-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .apply-cta-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .apply-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--text);
+      color: var(--white);
+      text-decoration: none;
+      padding: 1rem 2.25rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      width: fit-content;
+      transition: background 0.4s ease, transform 0.4s ease;
+    }
+
+    .apply-btn:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .apply-website {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 1.75rem;
+    }
+
+    /* ── HERO SCROLL INDICATOR ── */
+    .hero-scroll-hint {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 2rem;
+    }
+
+    @keyframes scroll-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+
+    .hero-scroll-hint svg {
+      width: 28px;
+      height: 28px;
+      stroke: rgba(255,255,255,0.5);
+      animation: scroll-bounce 2s ease-in-out infinite;
+    }
+
+    /* ── ACTIVE NAV ── */
+    .nav-links a.nav-active::after {
+      width: 100%;
+    }
+
+    nav.nav-scrolled .nav-links a.nav-active {
+      color: var(--text);
+    }
+
+    /* ── TESTIMONIAL QUOTE MARK ── */
+    .testimonial-quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--border);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── SCROLL TO TOP ── */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--text);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+      pointer-events: none;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent);
+    }
+
+    .scroll-top-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: #fff;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #141210;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3.5rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+
+    .footer-logo {
+      text-decoration: none;
+      color: rgba(255,255,255,0.5);
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .footer-logo .logo-pacifica { font-size: 1.25rem; }
+    .footer-logo .logo-the { font-size: 0.55rem; }
+    .footer-logo .logo-fellowship { font-size: 0.5rem; }
+
+    .footer-socials {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .footer-socials a svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(255,255,255,0.4);
+    }
+
+    .footer-copy {
+      text-align: center;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 1.5rem;
+    }
+
+    /* ── MOBILE NAV CTA (hidden on desktop) ── */
+    .nav-mobile-cta {
+      display: none;
+      align-items: center;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+    }
+
+    nav.nav-scrolled .nav-mobile-cta {
+      background: var(--text);
+      color: var(--white);
+      border-color: var(--text);
+    }
+
+    /* ── STAT CALLOUT ── */
+    .stat-callout {
+      background: var(--bg-warm-dark);
+      padding: 5rem 2rem;
+    }
+
+    .stat-callout-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    .stat-block { text-align: center; }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-number-before { color: rgba(255,255,255,0.35); }
+    .stat-number-after { color: #fff; }
+
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      max-width: 220px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    .stat-arrow {
+      color: rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .stat-arrow svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    /* ── TEAM CREDENTIALS ── */
+    .team-circle-title {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-weight: 500;
+      text-align: center;
+      max-width: 160px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials {
+      background: var(--surface);
+      padding: 6rem 2rem;
+    }
+
+    .testimonials-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .testimonials-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .testimonials-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 3.5rem;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.25rem 2rem;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+
+    .testimonial-stars {
+      color: #d4a853;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+      flex: 1;
+    }
+
+    .testimonial-attribution {
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .testimonial-detail {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+
+      /* Prevent anything from causing horizontal scroll */
+      section, footer, nav { max-width: 100vw; overflow-x: hidden; }
+
+      /* NAV */
+      .nav-inner { height: 60px; padding: 0 1.25rem; }
+      .logo-the { font-size: 0.65rem; }
+      .logo-pacifica { font-size: 1.4rem; }
+      .logo-fellowship { font-size: 0.6rem; }
+      .nav-links { display: none; }
+      .nav-mobile-cta { display: inline-flex; }
+
+      /* HERO */
+      .hero-body { padding: 90px 1.25rem 1.5rem; }
+      .hero-tagline { font-size: clamp(1.5rem, 6vw, 2.2rem); max-width: 100%; line-height: 1.25; }
+      .scarcity-pill { font-size: 0.52rem; padding: 0.3rem 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+
+      /* PROOF BAR */
+      .proof-bar-inner { gap: 0.4rem 0.75rem; padding: 0.85rem 1rem; flex-wrap: wrap; justify-content: center; }
+      .proof-sep { display: none; }
+      .proof-label { font-size: 0.6rem; letter-spacing: 0.1em; }
+      .logo-google { font-size: 1.2rem; }
+      .logo-usc-proof { font-size: 1rem; padding: 0.12rem 0.5rem; border-width: 1.5px; }
+      .logo-netflix { font-size: 1rem; letter-spacing: 0.1em; }
+
+      /* STAT CALLOUT — stack vertically on mobile */
+      .stat-callout { padding: 2.5rem 1.25rem; }
+      .stat-callout-inner { flex-direction: column; gap: 1.25rem; text-align: center; }
+      .stat-number { font-size: clamp(2.5rem, 12vw, 3.5rem); margin-bottom: 0.25rem; }
+      .stat-arrow { transform: rotate(90deg); }
+      .stat-arrow svg { width: 28px; height: 28px; }
+      .stat-label { font-size: 0.68rem; letter-spacing: 0.08em; max-width: 220px; }
+
+      /* TEAM */
+      #team { padding: 3rem 1.25rem 2.5rem; }
+      .team-headline { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 2rem; line-height: 1.3; }
+      .team-circles { gap: 1.25rem; }
+      .team-circle { width: 100px; height: 100px; }
+      .team-circle-name { font-size: 0.78rem; }
+      .team-circle-title { font-size: 0.62rem; max-width: 115px; line-height: 1.4; }
+      .team-caption { font-size: 0.9rem; line-height: 1.7; margin-bottom: 2rem; padding: 0 0.25rem; }
+      .logos-bar { gap: 0.5rem 0.75rem; padding: 0.85rem 0; margin-bottom: 0.5rem; flex-wrap: wrap; justify-content: center; }
+      .photo-strip { height: 220px; margin: 0 -1.25rem 2rem; }
+
+      /* UNIVERSITY GRID */
+      .placements-label { font-size: 0.9rem; margin-bottom: 1.75rem; line-height: 1.5; }
+      .placements-label br { display: none; }
+      .university-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem 0.75rem; }
+      .uni-name-main { font-size: 0.9rem; }
+      .uni-name-sub { font-size: 0.5rem; letter-spacing: 0.08em; }
+      .uni-divider { width: 24px; }
+      .university-count { font-size: 0.68rem; }
+
+      /* TESTIMONIALS */
+      #testimonials { padding: 3rem 1.25rem; }
+      .testimonials-label { font-size: 0.62rem; margin-bottom: 0.75rem; }
+      .testimonials-headline { margin-bottom: 2rem; font-size: clamp(1.2rem, 5vw, 1.6rem); }
+      .testimonial-grid { grid-template-columns: 1fr; gap: 0.85rem; }
+      .testimonial-card { padding: 1.25rem 1.15rem; }
+      .testimonial-quote { font-size: 0.85rem; line-height: 1.65; margin-bottom: 1rem; }
+      .testimonial-stars { margin-bottom: 0.6rem; font-size: 0.75rem; }
+      .testimonial-quote-mark { font-size: 1.75rem; margin-bottom: 0.15rem; }
+      .testimonial-name { font-size: 0.8rem; }
+      .testimonial-detail { font-size: 0.7rem; }
+
+      /* STRATEGY */
+      .strategy-inner { padding: 3rem 1.25rem; }
+      .strategy-banner { margin-bottom: 1.5rem; }
+      .strategy-banner h2 { font-size: clamp(1.15rem, 4.5vw, 1.6rem); line-height: 1.35; }
+      .strategy-body p { font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.25rem; }
+      .strategy-body p br { display: none; }
+      .strategy-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; margin-top: 1.5rem; }
+      .strategy-card { padding: 1rem 0.65rem; }
+      .strategy-card-icon { width: 32px; height: 32px; margin-bottom: 0.6rem; }
+      .strategy-card-icon svg { width: 15px; height: 15px; }
+      .strategy-card-title { font-size: 0.68rem; margin-bottom: 0.25rem; }
+      .strategy-card-desc { font-size: 0.6rem; line-height: 1.4; }
+
+      /* SCROLL TO TOP */
+      .scroll-top-btn { bottom: 1.25rem; right: 1.25rem; width: 38px; height: 38px; }
+
+      /* FOOTER */
+      .footer-inner { flex-direction: column; gap: 1.25rem; text-align: center; }
+      .footer-logo .logo-pacifica { font-size: 1.25rem; }
+      .footer-copy { font-size: 0.65rem; padding-top: 1.25rem; }
+
+      /* HERO SCROLL HINT */
+      .hero-scroll-hint { padding-bottom: 1rem; }
+      .hero-scroll-hint svg { width: 20px; height: 20px; }
+
+      /* PROGRAM */
+      #program { padding: 3rem 1.25rem 0; }
+      .program-inner { padding-bottom: 2.5rem; }
+      .program-headline { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 2rem; line-height: 1.3; }
+      .timeline { padding-left: 38px; }
+      .timeline::before { left: 11px; }
+      .timeline-dot { left: -38px; width: 24px; height: 24px; }
+      .timeline-dot-number { font-size: 0.58rem; }
+      .timeline-milestone .timeline-dot { left: -40px; width: 28px; height: 28px; }
+      .timeline-year-label { font-size: 0.65rem; }
+      .timeline-location { font-size: 0.72rem; margin-bottom: 1rem; }
+      .timeline-items li { font-size: 0.8rem; padding: 0.5rem 0; padding-left: 0.85rem; line-height: 1.5; }
+      .timeline-milestone-text { font-size: 1rem; }
+      .timeline-milestone-sub { font-size: 0.72rem; }
+      .program-pullquote { margin: 0 -1.25rem; background-attachment: scroll; }
+      .program-pullquote-inner { padding: 2.5rem 1.25rem; }
+      .program-pullquote p { font-size: clamp(1.1rem, 4.5vw, 1.5rem); line-height: 1.35; }
+
+      /* SCARCITY */
+      .stat-scarcity { font-size: 0.65rem; margin-top: 1.25rem; }
+      .apply-scarcity { font-size: 0.7rem; line-height: 1.5; }
+
+      /* APPLY */
+      #apply { min-height: auto; }
+      #apply .apply-content { padding: 3rem 1.25rem 3.5rem; justify-content: center; }
+      .apply-tagline { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-bottom: 1.5rem; line-height: 1.3; max-width: 100%; }
+      .apply-scarcity { margin-bottom: 1.25rem; }
+      .apply-cta-label { font-size: 0.7rem; margin-bottom: 0.6rem; }
+
+      /* SECTION CTA */
+      .section-cta-wrap { margin-top: 2rem; }
+      .section-cta { font-size: 0.7rem; padding: 0.75rem 1.5rem; letter-spacing: 0.05em; }
+
+      /* ADDITIONAL SCHOOLS */
+      .also-enrolled { margin-top: 2rem; padding: 0 0.5rem; }
+      .also-enrolled-label { font-size: 0.9rem; }
+      .also-enrolled-schools { font-size: 0.82rem; line-height: 1.9; }
+
+      /* Disable parallax on mobile — not supported by iOS Safari */
+      #strategy, #apply, .program-pullquote {
+        background-attachment: scroll;
+      }
+
+      /* Video on mobile — ensure poster shows if video can't play */
+      .hero-video, .strategy-video {
+        object-fit: cover;
+      }
+    }
+
+    /* ── SMALL PHONES ── */
+    @media (max-width: 600px) {
+      .proof-bar-inner { flex-direction: column; gap: 0.35rem; }
+      .team-circles { gap: 1rem; }
+      .team-circle { width: 90px; height: 90px; }
+      .university-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.5rem; }
+      .strategy-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+      .also-enrolled-schools { font-size: 0.78rem; }
+      .section-cta { padding: 0.7rem 1.25rem; }
+    }
+
+    /* Disable hover effects on touch devices */
+    @media (hover: none) {
+      .team-circle-wrap:hover { transform: none; }
+      .team-circle:hover { transform: none; }
+      .logo-google:hover { transform: none; opacity: 1; }
+      .logo-usc-proof:hover { transform: none; opacity: 1; }
+      .logo-netflix:hover { transform: none; opacity: 1; }
+      .uni-logo-block:hover .uni-name-main { transform: none; opacity: 1; }
+      .nav-links a:hover::after { width: 0; }
+      .testimonial-card:hover { transform: none; box-shadow: none; }
+      .scroll-top-btn:hover { background: var(--text); }
+      .section-cta:hover { background: var(--text); transform: none; }
+      .section-cta-light:hover { background: rgba(255,255,255,0.12); }
+    }
+
+    /* Extra small screens (iPhone SE, etc.) */
+    @media (max-width: 390px) {
+      .nav-inner { padding: 0 0.85rem; height: 56px; }
+      .logo-pacifica { font-size: 1.2rem; }
+      .logo-the { font-size: 0.55rem; }
+      .logo-fellowship { font-size: 0.5rem; }
+      .nav-mobile-cta { font-size: 0.65rem; padding: 0.4rem 1rem; }
+
+      .hero-body { padding: 80px 0.85rem 1.5rem; }
+      .hero-tagline { font-size: 1.35rem; line-height: 1.3; }
+      .scarcity-pill { font-size: 0.48rem; padding: 0.25rem 0.75rem; }
+
+      .stat-number { font-size: 2.25rem; }
+      .stat-arrow svg { width: 22px; height: 22px; }
+      .stat-label { font-size: 0.58rem; max-width: 160px; }
+
+      .team-circle { width: 80px; height: 80px; }
+      .team-circle-name { font-size: 0.7rem; }
+      .team-circle-title { font-size: 0.55rem; max-width: 95px; }
+      .team-headline { font-size: 1.15rem; }
+      .team-caption { font-size: 0.82rem; }
+
+      .photo-strip { height: 160px; }
+
+      .university-grid { grid-template-columns: repeat(3, 1fr); }
+      .uni-name-main { font-size: 0.8rem; }
+      .uni-name-sub { font-size: 0.45rem; }
+      .university-count { font-size: 0.6rem; }
+      .also-enrolled-label { font-size: 0.85rem; }
+      .also-enrolled-schools { font-size: 0.7rem; line-height: 1.8; }
+
+      .testimonial-card { padding: 1rem 0.85rem; }
+      .testimonial-quote { font-size: 0.8rem; }
+      .testimonial-quote-mark { font-size: 1.5rem; }
+
+      .strategy-banner h2 { font-size: 1.1rem; }
+      .strategy-body p { font-size: 0.82rem; }
+      .strategy-card { padding: 0.85rem 0.5rem; }
+      .strategy-card-icon { width: 28px; height: 28px; margin-bottom: 0.5rem; }
+      .strategy-card-icon svg { width: 13px; height: 13px; }
+      .strategy-card-title { font-size: 0.62rem; }
+      .strategy-card-desc { font-size: 0.55rem; }
+
+      .timeline-items li { font-size: 0.75rem; }
+      .program-pullquote p { font-size: 1rem; }
+
+      .apply-tagline { font-size: 1.15rem; }
+      .section-cta { font-size: 0.65rem; padding: 0.65rem 1.15rem; }
+    }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active { display: flex; }
+
+    .modal {
+      background: var(--white);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.5rem 2.5rem 2rem;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+      animation: modal-in 0.3s ease;
+    }
+
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(16px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      padding: 0.25rem;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.5;
+    }
+
+    .modal-form { display: flex; flex-direction: column; gap: 1rem; }
+
+    .modal-field label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+
+    .modal-field input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .modal-field input:focus { border-color: var(--accent); }
+
+    .modal-field input::placeholder { color: var(--muted); opacity: 0.5; }
+
+    .modal-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--text);
+      color: var(--white);
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.4s ease, transform 0.4s ease;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    .modal-submit:hover { background: var(--accent); transform: translateY(-2px); }
+
+    .modal-success {
+      display: none;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .modal-success.active { display: block; }
+    .modal-form.hidden { display: none; }
+
+    .modal-success-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .modal-success-icon svg { width: 24px; height: 24px; stroke: #fff; }
+
+    .modal-success h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-success p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-the">The</span>
+        <span class="logo-pacifica">Pacifica</span>
+        <span class="logo-fellowship">fellowship</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#team">Team</a></li>
+        <li><a href="#strategy">Program</a></li>
+        <li><a href="#program">How it works</a></li>
+        <li><a href="#apply">Apply</a></li>
+      </ul>
+      <a href="#apply" class="nav-mobile-cta">Apply</a>
+    </div>
+  </nav>
+
+  <!-- HERO — place hero.mp4 in the same folder as index.html -->
+  <section id="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="hero-bg.jpg">
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-body" style="flex-direction: column; align-items: center;">
+      <div class="scarcity-pill">Now Accepting Applications for Class of 2027</div>
+      <p class="hero-tagline">An immersive, 2+2 student improvement program that graduates high-potential students from a TOP 35 university in the US, guaranteed</p>
+    </div>
+    <div class="hero-scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="7 13 12 18 17 13"/><polyline points="7 6 12 11 17 6"/></svg>
+    </div>
+    <div class="proof-bar">
+      <div class="proof-bar-inner">
+        <span class="proof-label">Backed by</span>
+        <span class="logo-google">Google</span>
+        <span class="logo-usc-proof">USC</span>
+        <div class="proof-sep"></div>
+        <span class="proof-label">Featured on</span>
+        <span class="logo-netflix">Netflix</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT CALLOUT -->
+  <section class="stat-callout">
+    <div class="stat-callout-inner">
+      <div class="stat-block">
+        <div class="stat-number stat-number-before"><span data-stat="6">0</span>%</div>
+        <div class="stat-label">Average acceptance rate to a Top 35 US university</div>
+      </div>
+      <div class="stat-arrow">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="24" x2="40" y2="24"/><polyline points="32 16 40 24 32 32"/></svg>
+      </div>
+      <div class="stat-block">
+        <div class="stat-number stat-number-after"><span data-stat="100">0</span>%</div>
+        <div class="stat-label">Pacifica Fellowship placement rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div class="team-inner">
+
+      <h2 class="team-headline fade-up">From the most sought-after college consultants in the world, a method that changes the lives of students</h2>
+
+      <div class="team-circles stagger-children">
+        <div class="team-circle-wrap fade-up">
+          <div class="team-circle">
+            <img src="DEC_9321-Edit.jpg" alt="Perry Kalmus" loading="lazy" style="object-position: 50% 10%;" />
+          </div>
+          <span class="team-circle-name">Perry</span>
+          <span class="team-circle-title">Lead Counselor · As Seen on Netflix</span>
+        </div>
+        <div class="team-circle-wrap fade-up">
+          <div class="team-circle">
+            <img src="barbara.jpg" alt="Barbara Kalmus" loading="lazy" />
+          </div>
+          <span class="team-circle-name">Barbara</span>
+          <span class="team-circle-title">Lead Counselor · As Seen on Netflix</span>
+        </div>
+        <div class="team-circle-wrap fade-up">
+          <div class="team-circle">
+            <img src="Kalmus_Ori_117-Pilot_LA_10982.jpg" alt="Ori Kalmus" loading="lazy" />
+          </div>
+          <span class="team-circle-name">Ori</span>
+          <span class="team-circle-title">Lead Counselor · Over 20 Years of Experience</span>
+        </div>
+      </div>
+
+      <p class="team-caption">Barbara, Perry, Ori and their team of expert counselors have worked with over 16,000 students, and have over 70 years of combined experience in college admissions</p>
+
+      <div class="logos-bar">
+        <span class="proof-label">Backed by</span>
+        <span class="logo-google">Google</span>
+        <span class="logo-usc-proof">USC</span>
+        <div class="proof-sep"></div>
+        <span class="proof-label">Featured on</span>
+        <span class="logo-netflix">Netflix</span>
+      </div>
+
+      <div class="section-cta-wrap fade-up" style="margin-top: 0; margin-bottom: 1.5rem;">
+        <a href="#" onclick="openModal('apply');return false" class="section-cta">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline">Book a Consultation</a>
+      </div>
+
+    </div><!-- end team-inner -->
+
+    <div class="photo-strip">
+      <img src="teaching-bg.jpg" alt="Pacifica Fellowship in action" loading="lazy" />
+    </div>
+
+    <div class="team-inner">
+      <p class="placements-label fade-up">In the past 10 years, the Pacifica Fellowship has sent students<br>to the following top 35 schools</p>
+
+      <div class="university-grid stagger-children">
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-berkeley">
+            <div class="uni-name-main">Berkeley</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="80">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-ucla">
+            <div class="uni-name-main">UCLA</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="90">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-ucdavis">
+            <div class="uni-name-main">UC Davis</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="45">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-ucsd">
+            <div class="uni-name-main">UC San Diego</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="35">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-usc">
+            <div class="uni-name-main">USC</div>
+            <div class="uni-name-sub">University of Southern California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="80">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-uci">
+            <div class="uni-name-main">UC Irvine</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="30">0 students</div>
+        </div>
+
+        <div class="university-item fade-up">
+          <div class="uni-logo-block uni-ucsb">
+            <div class="uni-name-main">UC Santa Barbara</div>
+            <div class="uni-name-sub">University of California</div>
+          </div>
+          <div class="uni-divider"></div>
+          <div class="university-count" data-count="35">0 students</div>
+        </div>
+
+      </div>
+
+      <div class="also-enrolled fade-up">
+        <div class="also-enrolled-label">We have also successfully enrolled students in:</div>
+        <div class="also-enrolled-schools">UNC &nbsp;&middot;&nbsp; Michigan &nbsp;&middot;&nbsp; UVA &nbsp;&middot;&nbsp; Notre Dame &nbsp;&middot;&nbsp; Georgia Tech &nbsp;&middot;&nbsp; U Florida &nbsp;&middot;&nbsp; UT Austin</div>
+      </div>
+
+      <div class="section-cta-wrap fade-up">
+        <a href="#" onclick="openModal('apply');return false" class="section-cta">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline">Book a Consultation</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testimonials-inner">
+      <div class="testimonials-label">From our families</div>
+      <h2 class="testimonials-headline fade-up">Parents trust us with what matters most</h2>
+      <div class="testimonial-grid">
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-quote">We were nervous about sending our son halfway across the world. The monthly check-ins, the airport pickup, the housing support — it felt like he had family in Los Angeles. He's now at UC Berkeley studying computer science.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-name">Parent of 2024 Fellow</div>
+            <div class="testimonial-detail">Son placed at UC Berkeley</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-quote">Our daughter's grades weren't strong enough for direct admission. Perry and his team built a strategy that got her into UCLA through the transfer pathway. We didn't even know this was possible.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-name">Parent of 2023 Fellow</div>
+            <div class="testimonial-detail">Daughter placed at UCLA</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-quote-mark">&ldquo;</div>
+          <p class="testimonial-quote">The cultural immersion training made all the difference. Our son arrived in LA confident and prepared, not overwhelmed. The tutoring carried him through his first semester with a 3.8 GPA.</p>
+          <div class="testimonial-attribution">
+            <div class="testimonial-name">Parent of 2024 Fellow</div>
+            <div class="testimonial-detail">Son placed at USC</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="section-cta-wrap fade-up">
+        <a href="#" onclick="openModal('apply');return false" class="section-cta">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGY / WHITE GLOVE -->
+  <section id="strategy">
+    <video class="strategy-video" autoplay muted loop playsinline preload="auto" poster="hero-bg.jpg">
+      <source src="campus.mp4" type="video/mp4">
+    </video>
+    <div class="strategy-inner">
+      <div class="strategy-banner fade-up">
+        <h2><strong>A strategic approach to college placement</strong> increasing your chances to enter a top 35 university from 6% to guaranteed.</h2>
+      </div>
+      <div class="strategy-body">
+        <p>Our white-glove service is extensive, and designed to give you peace of mind in knowing that your child is well taken care of while they study in the United States.</p>
+        <div class="strategy-grid">
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.4-.1.9.3 1.1l5.7 3.3-3.1 3.1-2.1-.5c-.4-.1-.8 0-1 .3l-.2.3c-.2.3-.1.7.2.9l3.3 2.5 2.5 3.3c.2.3.6.4.9.2l.3-.2c.3-.2.4-.6.3-1l-.5-2.1 3.1-3.1 3.3 5.7c.2.4.7.5 1.1.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg></div>
+            <div class="strategy-card-title">Airport Pickup</div>
+            <div class="strategy-card-desc">We meet your child at LAX and handle the transition</div>
+          </div>
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="strategy-card-title">Housing Support</div>
+            <div class="strategy-card-desc">Safe, vetted housing arranged before arrival</div>
+          </div>
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <div class="strategy-card-title">Subject Tutoring</div>
+            <div class="strategy-card-desc">1-on-1 academic support to guarantee strong grades</div>
+          </div>
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="strategy-card-title">English &amp; TOEFL</div>
+            <div class="strategy-card-desc">Intensive language training for academic readiness</div>
+          </div>
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="strategy-card-title">Cultural Immersion</div>
+            <div class="strategy-card-desc">Confidence and comfort in American campus life</div>
+          </div>
+          <div class="strategy-card fade-up">
+            <div class="strategy-card-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="strategy-card-title">Monthly Parent Check-ins</div>
+            <div class="strategy-card-desc">Regular updates on every aspect of your child's journey</div>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta-wrap fade-up">
+        <a href="#" onclick="openModal('apply');return false" class="section-cta section-cta-light">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline-light">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM: YEAR 1 & YEAR 2 -->
+  <section id="program">
+    <div class="program-inner">
+      <h2 class="program-headline fade-up">This <strong>white-glove service</strong> ensures a safe and successful US college experience</h2>
+      <div class="timeline">
+
+        <div class="timeline-phase fade-up">
+          <div class="timeline-dot"><span class="timeline-dot-number">1</span></div>
+          <div class="timeline-year-label">Year One</div>
+          <div class="timeline-location">In your home country</div>
+          <ul class="timeline-items">
+            <li>Starts the summer after you graduate high school</li>
+            <li>1-on-1 support with transfer prep and online courses for college credit</li>
+            <li>Enrollment in online courses for college credit</li>
+            <li>Subject tutoring to guarantee academic success</li>
+            <li>High-level TOEFL tutoring</li>
+            <li>Cultural immersion curriculum and language support</li>
+          </ul>
+        </div>
+
+        <div class="timeline-phase fade-up">
+          <div class="timeline-dot"><span class="timeline-dot-number">2</span></div>
+          <div class="timeline-year-label">Year Two</div>
+          <div class="timeline-location">In-person in Los Angeles</div>
+          <ul class="timeline-items">
+            <li>1-on-1 support throughout your time in Los Angeles</li>
+            <li>In-person classes for college credit</li>
+            <li>UPenn Certificate in Entrepreneurship</li>
+            <li>Cultural immersion curriculum</li>
+            <li>College tours and expert guidance</li>
+            <li>Continued subject and TOEFL tutoring</li>
+            <li>Transfer application and essay guidance</li>
+          </ul>
+        </div>
+
+        <div class="timeline-milestone fade-up">
+          <div class="timeline-dot">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="timeline-milestone-text">Graduate from a Top 35 US university</div>
+          <div class="timeline-milestone-sub">100% placement rate — guaranteed</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PULLQUOTE — add audience-bg.jpg for background -->
+    <div class="program-pullquote">
+      <div class="program-pullquote-inner">
+        <p>If your dreams are being limited by your academic records, this is your strategic approach to graduate from a top university</p>
+        <div class="section-cta-wrap" style="margin-top: 2.5rem;">
+          <a href="#" onclick="openModal('apply');return false" class="section-cta section-cta-light">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline-light">Book a Consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY — add apply-bg.jpg (graduation cap from behind) for background -->
+  <section id="apply">
+    <div class="apply-content" style="align-items: center; text-align: center;">
+      <p class="apply-tagline fade-up" style="text-align: center;">This exclusive, invite-only program is designed for the student with drive, ambition, and passion for high-level academics</p>
+      <p class="apply-scarcity fade-up"><strong>Class of 2027 is now open</strong> — limited to 15 students. Applications are reviewed on a rolling basis until the cohort is full.</p>
+      <div class="section-cta-wrap fade-up">
+        <a href="#" onclick="openModal('apply');return false" class="section-cta">Apply Now <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="#" onclick="openModal('consultation');return false" class="section-cta section-cta-outline">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#hero" class="footer-logo">
+        <span class="logo-the">The</span>
+        <span class="logo-pacifica">Pacifica</span>
+        <span class="logo-fellowship">fellowship</span>
+      </a>
+      <div class="footer-socials">
+        <a href="https://twitter.com/pacificafellowship" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/pacificafellowship" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-copy">&copy; 2026 The Pacifica Fellowship &nbsp;·&nbsp; All rights reserved</div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modal-apply">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-title" id="modal-title">Apply Now</div>
+      <div class="modal-subtitle">Fill out the form below and our team will be in touch shortly.</div>
+      <form class="modal-form" id="modal-form">
+        <div class="modal-field">
+          <label for="modal-name">Your Name</label>
+          <input type="text" id="modal-name" name="name" placeholder="First & last name" required />
+        </div>
+        <div class="modal-field">
+          <label for="modal-student">Student Name</label>
+          <input type="text" id="modal-student" name="student_name" placeholder="Student's first & last name" required />
+        </div>
+        <div class="modal-field">
+          <label for="modal-email">Email</label>
+          <input type="email" id="modal-email" name="email" placeholder="you@example.com" required />
+        </div>
+        <input type="hidden" id="modal-type" name="form_type" value="apply" />
+        <button type="submit" class="modal-submit">Submit</button>
+      </form>
+      <div class="modal-success" id="modal-success">
+        <div class="modal-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>Thank you!</h3>
+        <p>We've received your information and will be in touch soon.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Nav scroll state — transparent over hero, solid when scrolled
+    const navEl = document.querySelector('nav');
+    const heroEl = document.querySelector('#hero');
+    function updateNav() {
+      const heroBottom = heroEl.getBoundingClientRect().bottom;
+      if (heroBottom <= 0) {
+        navEl.classList.add('nav-scrolled');
+      } else {
+        navEl.classList.remove('nav-scrolled');
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // JS parallax for mobile (iOS Safari doesn't support background-attachment: fixed)
+    function applyMobileParallax() {
+      if (window.innerWidth > 768) return;
+      const els = [
+        document.querySelector('#strategy'),
+      ];
+      els.forEach(function(el) {
+        if (!el) return;
+        var rect = el.getBoundingClientRect();
+        var offset = -(rect.top * 0.25);
+        el.style.backgroundPositionY = 'calc(50% + ' + offset + 'px)';
+      });
+    }
+    window.addEventListener('scroll', applyMobileParallax, { passive: true });
+    window.addEventListener('resize', applyMobileParallax, { passive: true });
+    applyMobileParallax();
+
+    // Scroll fade-in
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // Photo strip zoom on scroll
+    const photoStrip = document.querySelector('.photo-strip');
+    if (photoStrip) {
+      const stripObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            stripObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      stripObserver.observe(photoStrip);
+    }
+
+    // Stat callout — animate 6% and 100% on scroll
+    const statEls = document.querySelectorAll('[data-stat]');
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.stat, 10);
+          const duration = target > 50 ? 1600 : 1000;
+          const start = performance.now();
+          function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          statObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+    statEls.forEach(el => statObserver.observe(el));
+
+    // Stat counter — counts up when university grid scrolls into view
+    function animateCount(el) {
+      const target = parseInt(el.dataset.count, 10);
+      const duration = 1200;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + '+ students';
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const countEls = document.querySelectorAll('[data-count]');
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    countEls.forEach(el => countObserver.observe(el));
+
+    // Active nav highlighting
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    function updateActiveNav() {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top <= 120) current = section.id;
+      });
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + current) {
+          a.classList.add('nav-active');
+        } else {
+          a.classList.remove('nav-active');
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    updateActiveNav();
+
+    // Force video autoplay (browsers sometimes block even muted autoplay)
+    document.querySelectorAll('video[autoplay]').forEach(function(video) {
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function() {
+          // Autoplay blocked — try on first user interaction
+          function tryPlay() {
+            video.play();
+            document.removeEventListener('touchstart', tryPlay);
+            document.removeEventListener('click', tryPlay);
+          }
+          document.addEventListener('touchstart', tryPlay, { once: true });
+          document.addEventListener('click', tryPlay, { once: true });
+        });
+      }
+    });
+
+    // Scroll to top button
+    const scrollBtn = document.querySelector('.scroll-top-btn');
+    if (scrollBtn) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      }, { passive: true });
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
+    // Modal
+    var modalOverlay = document.getElementById('modal-apply');
+    var modalTitle = document.getElementById('modal-title');
+    var modalForm = document.getElementById('modal-form');
+    var modalSuccess = document.getElementById('modal-success');
+    var modalType = document.getElementById('modal-type');
+
+    function openModal(type) {
+      modalTitle.textContent = type === 'consultation' ? 'Book a Free Consultation' : 'Apply Now';
+      modalType.value = type;
+      modalForm.classList.remove('hidden');
+      modalSuccess.classList.remove('active');
+      modalForm.reset();
+      modalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    modalOverlay.querySelector('.modal-close').addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Hidden iframe for form submission (avoids CORS redirect issues with Google Apps Script)
+    var gasIframe = document.createElement('iframe');
+    gasIframe.name = 'gas-target';
+    gasIframe.style.display = 'none';
+    document.body.appendChild(gasIframe);
+
+    modalForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var submitBtn = modalForm.querySelector('.modal-submit');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      // Build a hidden form that submits via iframe to avoid CORS issues
+      var hiddenForm = document.createElement('form');
+      hiddenForm.method = 'POST';
+      hiddenForm.action = 'https://script.google.com/a/macros/goakala.com/s/AKfycbwtpUluGuVOzIYGWh-0kwmy_WTm4gUoiQVjkcZyytwetlA4IG25bqlKrdP6I8oq0Ktu/exec';
+      hiddenForm.target = 'gas-target';
+
+      var fields = {
+        name: document.getElementById('modal-name').value,
+        student_name: document.getElementById('modal-student').value,
+        email: document.getElementById('modal-email').value,
+        form_type: modalType.value
+      };
+
+      for (var key in fields) {
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = fields[key];
+        hiddenForm.appendChild(input);
+      }
+
+      document.body.appendChild(hiddenForm);
+      hiddenForm.submit();
+      document.body.removeChild(hiddenForm);
+
+      // Show success state
+      modalForm.classList.add('hidden');
+      modalSuccess.classList.add('active');
+      submitBtn.textContent = 'Submit';
+      submitBtn.disabled = false;
+      setTimeout(closeModal, 3000);
+    });
+
+  </script>
+
+</body>
+</html>
