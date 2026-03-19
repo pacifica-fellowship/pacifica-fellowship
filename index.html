@@ -541,11 +541,12 @@
     }
 
     .university-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2.5rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem 3rem;
       text-align: center;
-      max-width: 700px;
+      max-width: 750px;
       margin: 0 auto;
     }
 
@@ -555,6 +556,7 @@
       flex-direction: column;
       align-items: center;
       gap: 0.6rem;
+      width: 140px;
     }
 
     .uni-logo-block {
@@ -1333,7 +1335,8 @@
       /* UNIVERSITY GRID */
       .placements-label { font-size: 0.9rem; margin-bottom: 1.75rem; line-height: 1.5; }
       .placements-label br { display: none; }
-      .university-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem 0.75rem; }
+      .university-grid { gap: 1.25rem 0.75rem; }
+      .university-item { width: 95px; }
       .uni-name-main { font-size: 0.9rem; }
       .uni-name-sub { font-size: 0.5rem; letter-spacing: 0.08em; }
       .uni-divider { width: 24px; }
@@ -1430,7 +1433,8 @@
       .proof-bar-inner { flex-direction: column; gap: 0.35rem; }
       .team-circles { gap: 1rem; }
       .team-circle { width: 90px; height: 90px; }
-      .university-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem 0.5rem; }
+      .university-grid { gap: 1rem 0.5rem; }
+      .university-item { width: 85px; }
       .strategy-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
       .also-enrolled-schools { font-size: 0.78rem; }
       .section-cta { padding: 0.7rem 1.25rem; }
@@ -1475,7 +1479,7 @@
 
       .photo-strip { height: 160px; }
 
-      .university-grid { grid-template-columns: repeat(3, 1fr); }
+      .university-item { width: 75px; }
       .uni-name-main { font-size: 0.8rem; }
       .uni-name-sub { font-size: 0.45rem; }
       .university-count { font-size: 0.6rem; }
