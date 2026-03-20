@@ -1714,7 +1714,7 @@
         <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="24" x2="40" y2="24"/><polyline points="32 16 40 24 32 32"/></svg>
       </div>
       <div class="stat-block">
-        <div class="stat-number stat-number-after"><span data-stat="100">0</span>%</div>
+        <div class="stat-number stat-number-after"><span data-stat="98.9">0</span>%</div>
         <div class="stat-label">Pacifica Fellowship placement rate</div>
       </div>
     </div>
@@ -1988,7 +1988,7 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <div class="timeline-milestone-text">Graduate from a Top 35 US university</div>
-          <div class="timeline-milestone-sub">100% placement rate — guaranteed</div>
+          <div class="timeline-milestone-sub">98.9% placement rate — guaranteed</div>
         </div>
 
       </div>
@@ -2135,19 +2135,21 @@
       stripObserver.observe(photoStrip);
     }
 
-    // Stat callout — animate 6% and 100% on scroll
+    // Stat callout — animate stats on scroll
     const statEls = document.querySelectorAll('[data-stat]');
     const statObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const el = entry.target;
-          const target = parseInt(el.dataset.stat, 10);
+          const target = parseFloat(el.dataset.stat);
+          const hasDecimal = el.dataset.stat.includes('.');
           const duration = target > 50 ? 1600 : 1000;
           const start = performance.now();
           function tick(now) {
             const progress = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - progress, 3);
-            el.textContent = Math.round(eased * target);
+            const val = eased * target;
+            el.textContent = hasDecimal ? val.toFixed(1) : Math.round(val);
             if (progress < 1) requestAnimationFrame(tick);
           }
           requestAnimationFrame(tick);
